@@ -52,7 +52,11 @@ public class CMap extends Fragment {
     View view;
     private ProgressDialog pDialog;
     private static String url = "http://private-b08d8d-nikitest.apiary-mock.com/contacts";
+<<<<<<< HEAD
    String data1="";static String str="";
+=======
+   String data1=""; String str="";
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
     public ArrayList<HashMap<String, String>> contactList = new ArrayList<HashMap<String, String>>();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -105,6 +109,7 @@ public class CMap extends Fragment {
                         "Sorry! unable to create maps", Toast.LENGTH_SHORT)
                         .show();
             }
+<<<<<<< HEAD
             new Thread(new Task()).start();
         }
     }
@@ -124,17 +129,31 @@ public class CMap extends Fragment {
             }
         }
     }
+=======
+            new GetProfilee().execute();
+        }
+    }
+
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
     private class GetProfilee extends AsyncTask<Void, Void, Void> {           // background data fetching
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
             // Showing progress dialog
+<<<<<<< HEAD
       /*     pDialog = new ProgressDialog(getActivity());
             pDialog.setMessage("Please wait...");
             pDialog.setCancelable(false);
             pDialog.show();
 */
+=======
+            pDialog = new ProgressDialog(getActivity());
+            pDialog.setMessage("Please wait...");
+            pDialog.setCancelable(false);
+            pDialog.show();
+
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
         }
 
         @Override
@@ -144,11 +163,19 @@ public class CMap extends Fragment {
 
             try {
 
+<<<<<<< HEAD
               //  ServiceHandler sh = new ServiceHandler();
 
                //  Making a request to url and getting response
               //  str = sh.makeServiceCall(url, ServiceHandler.GET);
                 Log.d("value: ", "> " + str);
+=======
+                ServiceHandler sh = new ServiceHandler();
+
+                // Making a request to url and getting response
+                str = sh.makeServiceCall(url, ServiceHandler.GET);
+                Log.d("Response: ", "> " + str);
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
 
                 if (str != null) {
 
@@ -189,6 +216,7 @@ public class CMap extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+<<<<<<< HEAD
          //    Dismiss the progress dialog
       //      if (pDialog.isShowing())
       //          pDialog.dismiss();
@@ -199,6 +227,21 @@ public class CMap extends Fragment {
     CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(Double.parseDouble(contactList.get(0).get("latitude")), Double.parseDouble(contactList.get(0).get("longitude")))).build();
     googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 }
+=======
+            // Dismiss the progress dialog
+            if (pDialog.isShowing())
+                pDialog.dismiss();
+
+            for(int i=0;i<contactList.size();i++)
+            {
+                googleMap.addMarker(new MarkerOptions().position(new LatLng(Double.parseDouble(contactList.get(i).get("latitude") ), Double.parseDouble(contactList.get(i).get("longitude")))).title(contactList.get(i).get("name")+"   phone : "+contactList.get(i).get("phone")));
+            }
+            CameraPosition cameraPosition = new CameraPosition.Builder().target(new LatLng(Double.parseDouble(contactList.get(0).get("latitude") ), Double.parseDouble(contactList.get(0).get("longitude")))).build();
+            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+
+        }
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
 
     }
 

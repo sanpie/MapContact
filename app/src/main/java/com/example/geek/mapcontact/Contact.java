@@ -16,7 +16,10 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.provider.Settings;
+<<<<<<< HEAD
 import android.support.v4.app.FragmentActivity;
+=======
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -243,8 +246,11 @@ else
 
             lv=(ListView) rootView.findViewById(R.id.onstagelist);
             lv.setAdapter(new CustomAdapter1((MainActivity) getActivity(), contactList));
+<<<<<<< HEAD
             CMap.str=str;
 
+=======
+>>>>>>> 81ca0034f356ff213395fad8f8f9debeae94ca77
 
 
         }
